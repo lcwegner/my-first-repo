@@ -9,31 +9,29 @@ Original file is located at
 
 import streamlit as st
 import pandas as pd
-
 # Title of the app
-st.title('Interactive Data Visualization App')
+st.title('Interactive Sales Data Visualization App')
 
-# Pre-loaded dataset
+# Pre-loaded dataset for sales information
 data = {
-    'Country': ['USA', 'China', 'India', 'Japan', 'Germany'],
-    'GDP (Trillions USD)': [21.43, 14.34, 2.87, 5.08, 3.86],
-    'Population (Millions)': [331, 1441, 1380, 126, 83]
+    'Product': ['Product A', 'Product B', 'Product C', 'Product D', 'Product E'],
+    'Sales (Thousands USD)': [150, 200, 300, 400, 250],
+    'Quantity Sold': [30, 45, 55, 65, 50]
 }
-
 df = pd.DataFrame(data)
 
-# Show the data
-st.write("Dataset:")
+# Display the dataset
+st.write("Sales Data:")
 st.write(df)
 
-# Let user select columns for visualization
+# Let the user select columns for the chart
 columns = df.columns.tolist()
 
-# Dropdowns for X and Y axes
+# Dropdowns for X and Y axes selection
 x_axis = st.selectbox('Select column for X-axis', columns)
 y_axis = st.selectbox('Select column for Y-axis', columns)
 
-# Choose chart type: Bar or Line
+# Choose chart type: Bar Chart or Line Chart
 chart_type = st.selectbox('Select chart type', ['Bar Chart', 'Line Chart'])
 
 # Display chart based on user selections
